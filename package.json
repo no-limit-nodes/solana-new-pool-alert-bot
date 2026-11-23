@@ -1,0 +1,24 @@
+{
+  "name": "solana-new-pool-alert-bot",
+  "version": "1.0.0",
+  "description": "Solana new liquidity pool alert bot: watch Raydium, Meteora DLMM, Orca and PumpSwap over Yellowstone gRPC and alert the moment a pool is created.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsx src/pool-bot.ts",
+    "test": "tsx src/detect.test.ts",
+    "typecheck": "tsc"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@triton-one/yellowstone-grpc": "10.0.0",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

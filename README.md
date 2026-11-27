@@ -148,7 +148,7 @@ The tests cover a real PumpSwap pool creation, a PumpSwap `Buy` that must not ma
 ## Make it yours
 
 - **Add a DEX.** Add its program ID and create-instruction regex to `DEXES` in `src/detect.ts`. The filter picks it up automatically.
-- **Screen the token before you trade.** Check whether the mint and freeze authorities are still active. See the [token risk scanner guide](https://nolimitnodes.com/blog/solana-token-risk-scanner-mint-freeze-authority).
+- **Screen the token before you trade.** Check whether the mint and freeze authorities are still active. Pass the mints to the [Solana token risk scanner](https://github.com/no-limit-nodes/solana-token-risk-scanner), which flags mint authority, freeze authority, mutable metadata and risky Token-2022 extensions. The [guide](https://nolimitnodes.com/blog/solana-token-risk-scanner-mint-freeze-authority) explains each check.
 - **Reconnect.** The bot exits on a stream error and does not reconnect. Wrap the setup in a retry loop with exponential backoff, like the [`reconnect.ts` example](https://github.com/no-limit-nodes/yellowstone-grpc-typescript-client/blob/main/src/reconnect.ts).
 - **Never miss a pool.** Validators truncate very long logs. For full coverage, decode the instructions against each program's IDL instead of reading the logs.
 - **Go deeper.** [Detecting new Solana liquidity pools](https://nolimitnodes.com/blog/detect-new-solana-liquidity-pools-raydium-meteora-orca-pumpswap) covers more DEXes, pool fields and edge cases.
